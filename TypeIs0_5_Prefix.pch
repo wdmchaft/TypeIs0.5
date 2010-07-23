@@ -1,0 +1,29 @@
+//
+// Prefix header for all source files of the 'TypeIs0.5' target in the 'TypeIs0.5' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+	#import <CoreData/CoreData.h>
+	#import <Cocoa/Cocoa.h>
+	#import "Singleton.h"
+#endif
+
+#define _BYTES		0
+#define _CHARS		1
+#define _CSTRING	2
+#define _DATA		3
+#define _DOC		4
+#define _FILE		5
+#define _HTML		6
+#define _RTF		7
+#define _STRING		8
+#define _TXT		9
+#define _URL		10
+#define _UTF8STRING	11
+
+#define ZOOM_IN_FACTOR  1.18920712
+#define ZOOM_OUT_FACTOR 1/ZOOM_IN_FACTOR
+
+#define DRAWING_MODE 0
+#define PAN_ZOOM_MODE 1

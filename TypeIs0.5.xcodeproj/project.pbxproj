@@ -1,0 +1,425 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
+		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
+		8D15AC310486D014006FF6A4 /* TIDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* TIDocument.m */; settings = {ATTRIBUTES = (); }; };
+		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		DBE5DE8811FA26490081373C /* TIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE6F11FA26490081373C /* TIAppDelegate.m */; };
+		DBE5DE8911FA26490081373C /* TIDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE7111FA26490081373C /* TIDocumentController.m */; };
+		DBE5DE8A11FA26490081373C /* TITextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE7411FA26490081373C /* TITextStorage.m */; };
+		DBE5DE8B11FA26490081373C /* TILineManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE7611FA26490081373C /* TILineManager.m */; };
+		DBE5DE8C11FA26490081373C /* TIPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE7811FA26490081373C /* TIPoint.m */; };
+		DBE5DE8D11FA26490081373C /* TICursorLine.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE7A11FA26490081373C /* TICursorLine.m */; };
+		DBE5DE8E11FA26490081373C /* TICharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE7C11FA26490081373C /* TICharacter.m */; };
+		DBE5DE8F11FA26490081373C /* TIString.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE7E11FA26490081373C /* TIString.m */; };
+		DBE5DE9011FA26490081373C /* ControlledIKImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE8111FA26490081373C /* ControlledIKImageView.m */; };
+		DBE5DE9111FA26490081373C /* ScrollViewWorkaround.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE8311FA26490081373C /* ScrollViewWorkaround.m */; };
+		DBE5DE9211FA26490081373C /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE8511FA26490081373C /* CanvasView.m */; };
+		DBE5DE9311FA26490081373C /* TIWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE8711FA26490081373C /* TIWindow.m */; };
+		DBE5DE9611FA26A70081373C /* typeis_icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = DBE5DE9511FA26A70081373C /* typeis_icon.icns */; };
+		DBE5DEAC11FA270F0081373C /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE5DEAB11FA270F0081373C /* CoreFoundation.framework */; };
+		DBE5DEB011FA270F0081373C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE5DEAF11FA270F0081373C /* OpenGL.framework */; };
+		DBE5DEB211FA270F0081373C /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE5DEB111FA270F0081373C /* Quartz.framework */; };
+		DBE5DEB411FA270F0081373C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE5DEB311FA270F0081373C /* QuartzCore.framework */; };
+		DBE5E05811FA28A30081373C /* TIDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE5E05611FA28A30081373C /* TIDocument.xib */; };
+		DBE5E0AA11FA296A0081373C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE5E0A811FA296A0081373C /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		2564AD2C0F5327BB00F57823 /* TypeIs0_5_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeIs0_5_Prefix.pch; sourceTree = "<group>"; };
+		2A37F4ACFDCFA73011CA2CEA /* TIDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIDocument.m; sourceTree = "<group>"; };
+		2A37F4AEFDCFA73011CA2CEA /* TIDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIDocument.h; sourceTree = "<group>"; };
+		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		8D15AC360486D014006FF6A4 /* TypeIs0_5-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TypeIs0_5-Info.plist"; sourceTree = "<group>"; };
+		8D15AC370486D014006FF6A4 /* TypeIs0.5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypeIs0.5.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBE5DE6E11FA26490081373C /* TIAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIAppDelegate.h; sourceTree = "<group>"; };
+		DBE5DE6F11FA26490081373C /* TIAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIAppDelegate.m; sourceTree = "<group>"; };
+		DBE5DE7011FA26490081373C /* TIDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIDocumentController.h; sourceTree = "<group>"; };
+		DBE5DE7111FA26490081373C /* TIDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIDocumentController.m; sourceTree = "<group>"; };
+		DBE5DE7311FA26490081373C /* TITextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TITextStorage.h; sourceTree = "<group>"; };
+		DBE5DE7411FA26490081373C /* TITextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TITextStorage.m; sourceTree = "<group>"; };
+		DBE5DE7511FA26490081373C /* TILineManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TILineManager.h; sourceTree = "<group>"; };
+		DBE5DE7611FA26490081373C /* TILineManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TILineManager.m; sourceTree = "<group>"; };
+		DBE5DE7711FA26490081373C /* TIPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIPoint.h; sourceTree = "<group>"; };
+		DBE5DE7811FA26490081373C /* TIPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIPoint.m; sourceTree = "<group>"; };
+		DBE5DE7911FA26490081373C /* TICursorLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICursorLine.h; sourceTree = "<group>"; };
+		DBE5DE7A11FA26490081373C /* TICursorLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICursorLine.m; sourceTree = "<group>"; };
+		DBE5DE7B11FA26490081373C /* TICharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICharacter.h; sourceTree = "<group>"; };
+		DBE5DE7C11FA26490081373C /* TICharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICharacter.m; sourceTree = "<group>"; };
+		DBE5DE7D11FA26490081373C /* TIString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIString.h; sourceTree = "<group>"; };
+		DBE5DE7E11FA26490081373C /* TIString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIString.m; sourceTree = "<group>"; };
+		DBE5DE8011FA26490081373C /* ControlledIKImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlledIKImageView.h; sourceTree = "<group>"; };
+		DBE5DE8111FA26490081373C /* ControlledIKImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlledIKImageView.m; sourceTree = "<group>"; };
+		DBE5DE8211FA26490081373C /* ScrollViewWorkaround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewWorkaround.h; sourceTree = "<group>"; };
+		DBE5DE8311FA26490081373C /* ScrollViewWorkaround.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewWorkaround.m; sourceTree = "<group>"; };
+		DBE5DE8411FA26490081373C /* CanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
+		DBE5DE8511FA26490081373C /* CanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
+		DBE5DE8611FA26490081373C /* TIWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIWindow.h; sourceTree = "<group>"; };
+		DBE5DE8711FA26490081373C /* TIWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIWindow.m; sourceTree = "<group>"; };
+		DBE5DE9411FA26800081373C /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		DBE5DE9511FA26A70081373C /* typeis_icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = typeis_icon.icns; sourceTree = "<group>"; };
+		DBE5DEAB11FA270F0081373C /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		DBE5DEAF11FA270F0081373C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		DBE5DEB111FA270F0081373C /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		DBE5DEB311FA270F0081373C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DBE5E05711FA28A30081373C /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TIDocument.xib; sourceTree = "<group>"; };
+		DBE5E0A911FA296A0081373C /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D15AC330486D014006FF6A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
+				DBE5DEAC11FA270F0081373C /* CoreFoundation.framework in Frameworks */,
+				DBE5DEB011FA270F0081373C /* OpenGL.framework in Frameworks */,
+				DBE5DEB211FA270F0081373C /* Quartz.framework in Frameworks */,
+				DBE5DEB411FA270F0081373C /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DBE5DEAB11FA270F0081373C /* CoreFoundation.framework */,
+				DBE5DEAF11FA270F0081373C /* OpenGL.framework */,
+				DBE5DEB111FA270F0081373C /* Quartz.framework */,
+				DBE5DEB311FA270F0081373C /* QuartzCore.framework */,
+				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A8FEA54F5311CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */,
+				2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB0FE9D524F11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D15AC370486D014006FF6A4 /* TypeIs0.5.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A37F4AAFDCFA73011CA2CEA /* TypeIs0.5 */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4ABFDCFA73011CA2CEA /* Classes */,
+				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
+				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
+				19C28FB0FE9D524F11CA2CBB /* Products */,
+			);
+			name = TypeIs0.5;
+			sourceTree = "<group>";
+		};
+		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DBE5DE6D11FA26490081373C /* Application Specifics */,
+				DBE5DE7211FA26490081373C /* TypeIs */,
+				DBE5DE7F11FA26490081373C /* Windows & Views */,
+				2A37F4AEFDCFA73011CA2CEA /* TIDocument.h */,
+				2A37F4ACFDCFA73011CA2CEA /* TIDocument.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DBE5DE9411FA26800081373C /* Singleton.h */,
+				2564AD2C0F5327BB00F57823 /* TypeIs0_5_Prefix.pch */,
+				2A37F4B0FDCFA73011CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DBE5E0A811FA296A0081373C /* MainMenu.xib */,
+				DBE5DE9511FA26A70081373C /* typeis_icon.icns */,
+				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
+				8D15AC360486D014006FF6A4 /* TypeIs0_5-Info.plist */,
+				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
+				DBE5E05611FA28A30081373C /* TIDocument.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
+				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DBE5DE6D11FA26490081373C /* Application Specifics */ = {
+			isa = PBXGroup;
+			children = (
+				DBE5DE6E11FA26490081373C /* TIAppDelegate.h */,
+				DBE5DE6F11FA26490081373C /* TIAppDelegate.m */,
+				DBE5DE7011FA26490081373C /* TIDocumentController.h */,
+				DBE5DE7111FA26490081373C /* TIDocumentController.m */,
+			);
+			name = "Application Specifics";
+			sourceTree = "<group>";
+		};
+		DBE5DE7211FA26490081373C /* TypeIs */ = {
+			isa = PBXGroup;
+			children = (
+				DBE5DE7311FA26490081373C /* TITextStorage.h */,
+				DBE5DE7411FA26490081373C /* TITextStorage.m */,
+				DBE5DE7511FA26490081373C /* TILineManager.h */,
+				DBE5DE7611FA26490081373C /* TILineManager.m */,
+				DBE5DE7711FA26490081373C /* TIPoint.h */,
+				DBE5DE7811FA26490081373C /* TIPoint.m */,
+				DBE5DE7911FA26490081373C /* TICursorLine.h */,
+				DBE5DE7A11FA26490081373C /* TICursorLine.m */,
+				DBE5DE7B11FA26490081373C /* TICharacter.h */,
+				DBE5DE7C11FA26490081373C /* TICharacter.m */,
+				DBE5DE7D11FA26490081373C /* TIString.h */,
+				DBE5DE7E11FA26490081373C /* TIString.m */,
+			);
+			name = TypeIs;
+			sourceTree = "<group>";
+		};
+		DBE5DE7F11FA26490081373C /* Windows & Views */ = {
+			isa = PBXGroup;
+			children = (
+				DBE5DE8011FA26490081373C /* ControlledIKImageView.h */,
+				DBE5DE8111FA26490081373C /* ControlledIKImageView.m */,
+				DBE5DE8211FA26490081373C /* ScrollViewWorkaround.h */,
+				DBE5DE8311FA26490081373C /* ScrollViewWorkaround.m */,
+				DBE5DE8411FA26490081373C /* CanvasView.h */,
+				DBE5DE8511FA26490081373C /* CanvasView.m */,
+				DBE5DE8611FA26490081373C /* TIWindow.h */,
+				DBE5DE8711FA26490081373C /* TIWindow.m */,
+			);
+			name = "Windows & Views";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D15AC270486D014006FF6A4 /* TypeIs0.5 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "TypeIs0.5" */;
+			buildPhases = (
+				8D15AC2B0486D014006FF6A4 /* Resources */,
+				8D15AC300486D014006FF6A4 /* Sources */,
+				8D15AC330486D014006FF6A4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TypeIs0.5;
+			productInstallPath = "$(HOME)/Applications";
+			productName = TypeIs0.5;
+			productReference = 8D15AC370486D014006FF6A4 /* TypeIs0.5.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Travis Kirton";
+			};
+			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "TypeIs0.5" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 1;
+			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* TypeIs0.5 */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D15AC270486D014006FF6A4 /* TypeIs0.5 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D15AC2B0486D014006FF6A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */,
+				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
+				DBE5DE9611FA26A70081373C /* typeis_icon.icns in Resources */,
+				DBE5E05811FA28A30081373C /* TIDocument.xib in Resources */,
+				DBE5E0AA11FA296A0081373C /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D15AC300486D014006FF6A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC310486D014006FF6A4 /* TIDocument.m in Sources */,
+				8D15AC320486D014006FF6A4 /* main.m in Sources */,
+				DBE5DE8811FA26490081373C /* TIAppDelegate.m in Sources */,
+				DBE5DE8911FA26490081373C /* TIDocumentController.m in Sources */,
+				DBE5DE8A11FA26490081373C /* TITextStorage.m in Sources */,
+				DBE5DE8B11FA26490081373C /* TILineManager.m in Sources */,
+				DBE5DE8C11FA26490081373C /* TIPoint.m in Sources */,
+				DBE5DE8D11FA26490081373C /* TICursorLine.m in Sources */,
+				DBE5DE8E11FA26490081373C /* TICharacter.m in Sources */,
+				DBE5DE8F11FA26490081373C /* TIString.m in Sources */,
+				DBE5DE9011FA26490081373C /* ControlledIKImageView.m in Sources */,
+				DBE5DE9111FA26490081373C /* ScrollViewWorkaround.m in Sources */,
+				DBE5DE9211FA26490081373C /* CanvasView.m in Sources */,
+				DBE5DE9311FA26490081373C /* TIWindow.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165FFE840EACC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1660FE840EACC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A37F4BAFDCFA73011CA2CEA /* English */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		DBE5E05611FA28A30081373C /* TIDocument.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DBE5E05711FA28A30081373C /* English */,
+			);
+			name = TIDocument.xib;
+			sourceTree = "<group>";
+		};
+		DBE5E0A811FA296A0081373C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DBE5E0A911FA296A0081373C /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C05733C808A9546B00998B17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TypeIs0_5_Prefix.pch;
+				INFOPLIST_FILE = "TypeIs0_5-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = TypeIs0.5;
+			};
+			name = Debug;
+		};
+		C05733C908A9546B00998B17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TypeIs0_5_Prefix.pch;
+				INFOPLIST_FILE = "TypeIs0_5-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = TypeIs0.5;
+			};
+			name = Release;
+		};
+		C05733CC08A9546B00998B17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		C05733CD08A9546B00998B17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "TypeIs0.5" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05733C808A9546B00998B17 /* Debug */,
+				C05733C908A9546B00998B17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "TypeIs0.5" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05733CC08A9546B00998B17 /* Debug */,
+				C05733CD08A9546B00998B17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+}
