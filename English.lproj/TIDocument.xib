@@ -21,7 +21,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="100026"/>
+			<integer value="6"/>
+			<integer value="100033"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -51,20 +52,20 @@
 			<object class="NSWindowTemplate" id="644444606">
 				<int key="NSWindowStyleMask">4103</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{0, 278}, {1200, 752}}</string>
+				<string key="NSWindowRect">{{0, 652}, {98, 98}}</string>
 				<int key="NSWTFlags">1618477056</int>
-				<string key="NSWindowTitle">Window</string>
+				<string key="NSWindowTitle">Background</string>
 				<string key="NSWindowClass">TIWindow</string>
 				<string key="NSViewClass">View</string>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<object class="NSView" key="NSWindowView" id="850182770">
 					<reference key="NSNextResponder"/>
-					<int key="NSvFlags">256</int>
+					<int key="NSvFlags">274</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSScrollView" id="464647776">
 							<reference key="NSNextResponder" ref="850182770"/>
-							<int key="NSvFlags">268</int>
+							<int key="NSvFlags">274</int>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSClipView" id="242956021">
@@ -80,14 +81,7 @@
 												<object class="IKImageView" id="1028752280">
 													<reference key="NSNextResponder" ref="58132779"/>
 													<int key="NSvFlags">274</int>
-													<object class="NSMutableSet" key="NSDragTypes">
-														<bool key="EncodedWithXMLCoder">YES</bool>
-														<object class="NSArray" key="set.sortedObjects">
-															<bool key="EncodedWithXMLCoder">YES</bool>
-															<string>NSFilenamesPboardType</string>
-														</object>
-													</object>
-													<string key="NSFrameSize">{1183, 735}</string>
+													<string key="NSFrameSize">{83, 83}</string>
 													<reference key="NSSuperview" ref="58132779"/>
 													<bool key="NSViewIsLayerTreeHost">YES</bool>
 													<float key="zoomFactor">1</float>
@@ -97,21 +91,21 @@
 													<bool key="hasHorizontalScroller">NO</bool>
 													<bool key="hasVerticalScroller">NO</bool>
 													<bool key="autohidesScrollers">NO</bool>
-													<bool key="supportsDragAndDrop">YES</bool>
+													<bool key="supportsDragAndDrop">NO</bool>
 													<bool key="editable">NO</bool>
-													<bool key="doubleClickOpensImageEditPanel">YES</bool>
+													<bool key="doubleClickOpensImageEditPanel">NO</bool>
 													<object class="NSColor" key="backgroundColor">
 														<int key="NSColorSpace">2</int>
 														<bytes key="NSRGB">MC41MDAwMjI4ODgyIDAuNTAwMDIyODg4MiAwLjUwMDAyMjg4ODIAA</bytes>
 													</object>
 												</object>
 											</object>
-											<string key="NSFrameSize">{1183, 735}</string>
+											<string key="NSFrameSize">{83, 83}</string>
 											<reference key="NSSuperview" ref="242956021"/>
 											<string key="NSClassName">ControlledIKImageView</string>
 										</object>
 									</object>
-									<string key="NSFrame">{{1, 1}, {1183, 735}}</string>
+									<string key="NSFrame">{{1, 1}, {83, 83}}</string>
 									<reference key="NSSuperview" ref="464647776"/>
 									<reference key="NSNextKeyView" ref="58132779"/>
 									<reference key="NSDocView" ref="58132779"/>
@@ -129,7 +123,7 @@
 								<object class="NSScroller" id="843598380">
 									<reference key="NSNextResponder" ref="464647776"/>
 									<int key="NSvFlags">256</int>
-									<string key="NSFrame">{{1184, 1}, {15, 735}}</string>
+									<string key="NSFrame">{{84, 1}, {15, 83}}</string>
 									<reference key="NSSuperview" ref="464647776"/>
 									<reference key="NSTarget" ref="464647776"/>
 									<string key="NSAction">_doScroller:</string>
@@ -139,7 +133,7 @@
 								<object class="NSScroller" id="958004969">
 									<reference key="NSNextResponder" ref="464647776"/>
 									<int key="NSvFlags">256</int>
-									<string key="NSFrame">{{1, 736}, {1183, 15}}</string>
+									<string key="NSFrame">{{1, 84}, {83, 15}}</string>
 									<reference key="NSSuperview" ref="464647776"/>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="464647776"/>
@@ -147,7 +141,7 @@
 									<double key="NSPercent">0.50602412223815918</double>
 								</object>
 							</object>
-							<string key="NSFrameSize">{1200, 752}</string>
+							<string key="NSFrameSize">{100, 100}</string>
 							<reference key="NSSuperview" ref="850182770"/>
 							<reference key="NSNextKeyView" ref="242956021"/>
 							<int key="NSsFlags">50</int>
@@ -156,18 +150,18 @@
 							<reference key="NSContentView" ref="242956021"/>
 						</object>
 					</object>
-					<string key="NSFrameSize">{1200, 752}</string>
+					<string key="NSFrameSize">{98, 98}</string>
 					<reference key="NSSuperview"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
 			</object>
 			<object class="NSWindowTemplate" id="537474445">
-				<int key="NSWindowStyleMask">4103</int>
+				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{0, 278}, {1200, 752}}</string>
-				<int key="NSWTFlags">611844096</int>
-				<string key="NSWindowTitle">Window</string>
+				<string key="NSWindowRect">{{0, 0}, {100, 100}}</string>
+				<int key="NSWTFlags">611849216</int>
+				<string key="NSWindowTitle">Canvas</string>
 				<string key="NSWindowClass">TIWindow</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -180,9 +174,8 @@
 							<reference key="NSNextResponder" ref="838405488"/>
 							<int key="NSvFlags">1298</int>
 							<object class="NSPSMatrix" key="NSDrawMatrix"/>
-							<string key="NSFrameSize">{1200, 752}</string>
+							<string key="NSFrameSize">{100, 100}</string>
 							<reference key="NSSuperview" ref="838405488"/>
-							<reference key="NSWindow"/>
 							<object class="NSOpenGLPixelFormat" key="NSPixelFormat">
 								<object class="NSMutableData" key="NSPixelAttributes">
 									<bytes key="NS.bytes">AAAAYAAAAAA</bytes>
@@ -190,11 +183,10 @@
 							</object>
 						</object>
 					</object>
-					<string key="NSFrameSize">{1200, 752}</string>
+					<string key="NSFrameSize">{100, 100}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
 			</object>
 		</object>
@@ -454,20 +446,20 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>ControlledIKImageView</string>
 					<string>com.apple.imagekit.ibplugin</string>
-					<string>{{403, 366}, {1200, 752}}</string>
+					<string>{{170, 263}, {100, 100}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{403, 366}, {1200, 752}}</string>
+					<string>{{170, 263}, {100, 100}}</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>CanvasView</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{324, 404}, {1200, 752}}</string>
+					<string>{{177, 658}, {98, 98}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{324, 404}, {1200, 752}}</string>
+					<string>{{177, 658}, {98, 98}}</string>
 					<integer value="1"/>
 					<boolean value="YES"/>
 					<boolean value="NO"/>
-					<string>{131.131, 86}</string>
+					<string>{0, 0}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 				</object>

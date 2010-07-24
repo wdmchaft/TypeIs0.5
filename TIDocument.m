@@ -285,8 +285,8 @@
 -(void)setImage:(NSURL *)image andText:(NSURL *)text {	
 	[self setImageURL:image];
 	[self setTextURL:text];
-	printf("%s\n",[[[self imageURL] absoluteString] UTF8String]);
-	printf("%s\n",[[[self textURL] absoluteString] UTF8String]);
+	//printf("%s\n",[[[self imageURL] absoluteString] UTF8String]);
+	//printf("%s\n",[[[self textURL] absoluteString] UTF8String]);
 }
 
 -(void)processEvent:(NSEvent *)theEvent {
@@ -393,14 +393,60 @@
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"ControllerDidSwitchToolMode" object:nil]];	
 }
 
+-(void)setWindowSize {
+	NSRect newFrame = [[NSScreen mainScreen] visibleFrame];
+//	printf("_originalSize       (%4.2f,%4.2f)\n",_originalSize.width,_originalSize.height);
+//	printf("newFrame(%4.2f,%4.2f,%4.2f,%4.2f)\n",newFrame.origin.x,newFrame.origin.y,newFrame.size.width,newFrame.size.height);
+	if (_originalSize.width < newFrame.size.width){
+		newFrame.size.width = _originalSize.width;
+	}
+	if (_originalSize.height < newFrame.size.height){
+		newFrame.size.height = _originalSize.height;
+	}
+	[_canvasWindow setFrame:newFrame display:YES];
+	[_backgroundWindow setFrame:newFrame display:YES];
+
+	[_canvasView setFrame:[[_canvasWindow contentView] frame]];
+	[_backgroundView setFrame:[[_backgroundWindow contentView] frame]];
+	[_foregroundView setFrame:[[_backgroundWindow contentView] frame]];
+	newFrame = [_canvasView frame];
+//	printf("cvv(%4.2f,%4.2f,%4.2f,%4.2f)\n",newFrame.origin.x,newFrame.origin.y,newFrame.size.width,newFrame.size.height);
+	newFrame = [_backgroundView frame];
+//	printf("bgv(%4.2f,%4.2f,%4.2f,%4.2f)\n",newFrame.origin.x,newFrame.origin.y,newFrame.size.width,newFrame.size.height);
+	newFrame = [_foregroundView frame];
+//	printf("fgv(%4.2f,%4.2f,%4.2f,%4.2f)\n",newFrame.origin.x,newFrame.origin.y,newFrame.size.width,newFrame.size.height);
+	//[_canvasWindow center];
+	//[_backgroundWindow center];
+	 
+	[self setWindowOrder:nil];
+}
+
 #pragma mark image creation
 - (void)createBackgroundImageFromURL:(NSURL*)url
 {
+	CGImageRef imageRef;
+	NSImage *image = [[NSImage alloc] initByReferencingURL:url];
+	NSString *extension = [[url pathExtension] lowercaseString];
+	if ([extension isEqualToString:@"tiff"]) {
+		CGImageSourceRef imageSourceRef = CGImageSourceCreateWithData((CFDataRef)[image TIFFRepresentation], NULL);
+		imageRef = CGImageSourceCreateImageAtIndex(imageSourceRef, 0, NULL);
+	}
+	if ([extension isEqualToString:@"jpg"] || [[url pathExtension] isEqualToString:@"jpeg"]) {
+		CGDataProviderRef dataProviderRef = CGDataProviderCreateWithURL((CFURLRef)url);
+		imageRef = CGImageCreateWithJPEGDataProvider(dataProviderRef, NULL, YES, kCGRenderingIntentDefault);
+	}
+	if ([extension isEqualToString:@"png"]) {
+		CGDataProviderRef dataProviderRef = CGDataProviderCreateWithURL((CFURLRef)url);
+		imageRef = CGImageCreateWithPNGDataProvider(dataProviderRef, NULL, YES, kCGRenderingIntentDefault);
+	}
+	
+	_originalSize = CGSizeMake(CGImageGetWidth(imageRef), CGImageGetHeight(imageRef));
+	_viewRect = CGRectMake(0, 0, _originalSize.width, _originalSize.height);
+	[self setWindowSize];
+
 	//set the image
 	[_backgroundView setImageWithURL:url];
-	_originalSize = CGSizeMake(CGImageGetWidth([_backgroundView image]), CGImageGetHeight([_backgroundView image]));
-	_viewRect = CGRectMake(0, 0, _originalSize.width, _originalSize.height);
-	
+
 	//set image properties
 	[_backgroundView setBackgroundColor:[NSColor blackColor]];
     [_backgroundView setDoubleClickOpensImageEditPanel:NO];
@@ -468,7 +514,7 @@
 	[_lineManager setCurrentColor:[self foregroundColor]];
 	
 	_textStorage	= [[TITextStorage sharedManager] retain];
-	int type = [self convertFileTypeToInt:[url pathExtension]];
+	int type = [self convertFileTypeToInt:[[url pathExtension] lowercaseString]];
 	switch (type) {
 			/*
 			 case _BYTES:
@@ -774,30 +820,26 @@
 }
 
 -(NSFileWrapper *)fileWrapperOfType:(NSString *)typeName error:(NSError **)outError {
+	if (_currentMode == DRAWING_MODE) {
+		[self switchToolMode:nil];
+	}
 	
 	NSFileWrapper *fw = [[NSFileWrapper alloc] initDirectoryWithFileWrappers:[NSDictionary dictionary]];
-	NSString *extension = [imageURL pathExtension];
+	NSString *extension = [[imageURL pathExtension] lowercaseString];
 	[fw addRegularFileWithContents:[self imageData:[_backgroundView image] usingImageType:extension] preferredFilename:[[@"backgroundImage" stringByAppendingString:@"."] stringByAppendingString:extension]];
-	[fw addRegularFileWithContents:[self imageData:[_foregroundView image] usingImageType:extension] preferredFilename:[[@"foregroundImage" stringByAppendingString:@"."] stringByAppendingString:extension]];
-	/*
-	if ([extension isEqualToString:@"jpg"] || [extension isEqualToString:@"jpeg"]) {
-		[fw addRegularFileWithContents:[self JPEGData:[_backgroundView image]] preferredFilename:[[@"backgroundImage" stringByAppendingString:@"."] stringByAppendingString:extension]];
-		[fw addRegularFileWithContents:[self JPEGData:[_foregroundView image]] preferredFilename:[[@"foregroundImage" stringByAppendingString:@"."] stringByAppendingString:extension]];
-	} else if([extension isEqualToString:@"png"]) {
-		[fw addRegularFileWithContents:[self PNGData:[_backgroundView image]] preferredFilename:[[@"backgroundImage" stringByAppendingString:@"."] stringByAppendingString:extension]];
-		[fw addRegularFileWithContents:[self PNGData:[_foregroundView image]] preferredFilename:[[@"foregroundImage" stringByAppendingString:@"."] stringByAppendingString:extension]];
-	} else if ([extension isEqualToString:@"tiff"]) {
-		[fw addRegularFileWithContents:[self TIFFData:[_backgroundView image]] preferredFilename:[[@"backgroundImage" stringByAppendingString:@"."] stringByAppendingString:extension]];
-		[fw addRegularFileWithContents:[self TIFFData:[_foregroundView image]] preferredFilename:[[@"foregroundImage" stringByAppendingString:@"."] stringByAppendingString:extension]];
-	}
-	*/
+	[fw addRegularFileWithContents:[self imageData:[_foregroundView image] usingImageType:@"tiff"] preferredFilename:[@"foregroundImage" stringByAppendingString:@".tiff"]];
 	return fw;
 }
 
 -(NSData *)imageData:(CGImageRef)imageRef usingImageType:(NSString *)type {
-	CFMutableDataRef dataRef = CFDataCreateMutable(kCFAllocatorDefault, 0);	
+	CFMutableDataRef dataRef = CFDataCreateMutable(kCFAllocatorDefault, 0);
+
+	if ([type isEqualToString:@"jpg"]) {
+		type = @"jpeg";
+	}
+	
 	CGImageDestinationRef destRef = CGImageDestinationCreateWithData(dataRef, (CFStringRef)[@"public." stringByAppendingString:type], 1, nil);
-	if ([type isEqualToString:@"jpg"] || [type isEqualToString:@"jpeg"]) {
+	if ([type isEqualToString:@"jpeg"]) {
 		CFMutableDictionaryRef jpegSaveOptions = CFDictionaryCreateMutable(nil,0,&kCFTypeDictionaryKeyCallBacks,&kCFTypeDictionaryValueCallBacks);
 		CFDictionarySetValue(jpegSaveOptions, kCGImageDestinationLossyCompressionQuality,[NSNumber numberWithFloat:1.0]);	// set the compression quality here
 		CGImageDestinationAddImage(destRef,imageRef, jpegSaveOptions);

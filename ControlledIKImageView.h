@@ -18,5 +18,4 @@
 
 -(void)adjustFrame;
 -(ScrollViewWorkaround *)scrollView;
-
 @end

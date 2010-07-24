@@ -47,6 +47,7 @@
 -(void)saveTextImagePanelDidEnd:(NSSavePanel *)panel returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 -(void)savePDFPanelDidEnd:(NSSavePanel *)panel returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 -(void)setImage:(NSURL *)image andText:(NSURL *)text;
+-(void)setWindowSize;
 
 -(void)keyDown:(NSEvent *)theEvent;
 

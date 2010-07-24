@@ -50,7 +50,7 @@
 }
 
 -(void)setImageWithURL:(NSURL *)url {
-	printf("%s\n",[[url absoluteString] UTF8String]);
+	//printf("%s\n",[[url absoluteString] UTF8String]);
 	[super setImageWithURL:url];
 }
 
