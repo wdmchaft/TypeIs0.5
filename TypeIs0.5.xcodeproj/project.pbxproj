@@ -31,6 +31,7 @@
 		DBE5DEB411FA270F0081373C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE5DEB311FA270F0081373C /* QuartzCore.framework */; };
 		DBE5E05811FA28A30081373C /* TIDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE5E05611FA28A30081373C /* TIDocument.xib */; };
 		DBE5E0AA11FA296A0081373C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE5E0A811FA296A0081373C /* MainMenu.xib */; };
+		ED1093CD11FAB0930013F448 /* document.icns in Resources */ = {isa = PBXBuildFile; fileRef = ED1093CC11FAB0930013F448 /* document.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		DBE5DEB311FA270F0081373C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DBE5E05711FA28A30081373C /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TIDocument.xib; sourceTree = "<group>"; };
 		DBE5E0A911FA296A0081373C /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		ED1093CC11FAB0930013F448 /* document.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = document.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED1093CC11FAB0930013F448 /* document.icns */,
 				DBE5E0A811FA296A0081373C /* MainMenu.xib */,
 				DBE5DE9511FA26A70081373C /* typeis_icon.icns */,
 				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
@@ -276,6 +279,7 @@
 				DBE5DE9611FA26A70081373C /* typeis_icon.icns in Resources */,
 				DBE5E05811FA28A30081373C /* TIDocument.xib in Resources */,
 				DBE5E0AA11FA296A0081373C /* MainMenu.xib in Resources */,
+				ED1093CD11FAB0930013F448 /* document.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
