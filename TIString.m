@@ -169,4 +169,27 @@
 	}
 	CFRelease(resultString);
 }
+
+-(void)encodeWithCoder:(NSCoder *)coder {
+	[coder encodeObject:(NSString*)string forKey:@"string"];
+	[coder encodeInt:(int)totalCharacters forKey:@"totalCharacters"];
+	[coder encodeInt:(int)caretPosition forKey:@"caretPosition"];
+	[coder encodeBool:CFBooleanGetValue(beingUsed) forKey:@"beingUsed"];
+	[coder encodeBool:CFBooleanGetValue(complete) forKey:@"complete"];
+}
+
+-(id)initWithEncoder:(NSCoder *)decoder {
+	if(![self init]) return nil;
+	string = CFStringCreateCopy(kCFAllocatorDefault, (CFStringRef)[decoder decodeObjectForKey:@"string"]);
+	totalCharacters = (CFIndex)[decoder decodeObjectForKey:@"totalCharacters"];
+	caretPosition = (CFIndex)[decoder decodeIntForKey:@"caretPosition"];
+	Boolean b = [decoder decodeBoolForKey:@"beingUsed"];
+	if (b == true) beingUsed = kCFBooleanTrue;
+	else beingUsed = kCFBooleanFalse;
+	b = [decoder decodeBoolForKey:@"complete"];
+	if(b == true) complete = kCFBooleanTrue;
+	else complete = kCFBooleanFalse;
+	return self;
+}
+
 @end

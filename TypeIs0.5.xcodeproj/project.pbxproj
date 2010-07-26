@@ -12,6 +12,8 @@
 		8D15AC310486D014006FF6A4 /* TIDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* TIDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		DB0122C011FE2D90007EC3CC /* typeis_icon_doc.icns in Resources */ = {isa = PBXBuildFile; fileRef = DB0122BE11FE2D90007EC3CC /* typeis_icon_doc.icns */; };
+		DB0122C111FE2D90007EC3CC /* typeis_icon_app.icns in Resources */ = {isa = PBXBuildFile; fileRef = DB0122BF11FE2D90007EC3CC /* typeis_icon_app.icns */; };
 		DBE5DE8811FA26490081373C /* TIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE6F11FA26490081373C /* TIAppDelegate.m */; };
 		DBE5DE8911FA26490081373C /* TIDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE7111FA26490081373C /* TIDocumentController.m */; };
 		DBE5DE8A11FA26490081373C /* TITextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE7411FA26490081373C /* TITextStorage.m */; };
@@ -24,14 +26,12 @@
 		DBE5DE9111FA26490081373C /* ScrollViewWorkaround.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE8311FA26490081373C /* ScrollViewWorkaround.m */; };
 		DBE5DE9211FA26490081373C /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE8511FA26490081373C /* CanvasView.m */; };
 		DBE5DE9311FA26490081373C /* TIWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DE8711FA26490081373C /* TIWindow.m */; };
-		DBE5DE9611FA26A70081373C /* typeis_icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = DBE5DE9511FA26A70081373C /* typeis_icon.icns */; };
 		DBE5DEAC11FA270F0081373C /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE5DEAB11FA270F0081373C /* CoreFoundation.framework */; };
 		DBE5DEB011FA270F0081373C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE5DEAF11FA270F0081373C /* OpenGL.framework */; };
 		DBE5DEB211FA270F0081373C /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE5DEB111FA270F0081373C /* Quartz.framework */; };
 		DBE5DEB411FA270F0081373C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE5DEB311FA270F0081373C /* QuartzCore.framework */; };
 		DBE5E05811FA28A30081373C /* TIDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE5E05611FA28A30081373C /* TIDocument.xib */; };
 		DBE5E0AA11FA296A0081373C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE5E0A811FA296A0081373C /* MainMenu.xib */; };
-		ED1093CD11FAB0930013F448 /* document.icns in Resources */ = {isa = PBXBuildFile; fileRef = ED1093CC11FAB0930013F448 /* document.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +46,8 @@
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D15AC360486D014006FF6A4 /* TypeIs0_5-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TypeIs0_5-Info.plist"; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* TypeIs0.5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypeIs0.5.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB0122BE11FE2D90007EC3CC /* typeis_icon_doc.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = typeis_icon_doc.icns; sourceTree = "<group>"; };
+		DB0122BF11FE2D90007EC3CC /* typeis_icon_app.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = typeis_icon_app.icns; sourceTree = "<group>"; };
 		DBE5DE6E11FA26490081373C /* TIAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIAppDelegate.h; sourceTree = "<group>"; };
 		DBE5DE6F11FA26490081373C /* TIAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIAppDelegate.m; sourceTree = "<group>"; };
 		DBE5DE7011FA26490081373C /* TIDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIDocumentController.h; sourceTree = "<group>"; };
@@ -71,14 +73,12 @@
 		DBE5DE8611FA26490081373C /* TIWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TIWindow.h; sourceTree = "<group>"; };
 		DBE5DE8711FA26490081373C /* TIWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TIWindow.m; sourceTree = "<group>"; };
 		DBE5DE9411FA26800081373C /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
-		DBE5DE9511FA26A70081373C /* typeis_icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = typeis_icon.icns; sourceTree = "<group>"; };
 		DBE5DEAB11FA270F0081373C /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		DBE5DEAF11FA270F0081373C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		DBE5DEB111FA270F0081373C /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		DBE5DEB311FA270F0081373C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DBE5E05711FA28A30081373C /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TIDocument.xib; sourceTree = "<group>"; };
 		DBE5E0A911FA296A0081373C /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		ED1093CC11FAB0930013F448 /* document.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = document.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,9 +163,9 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				ED1093CC11FAB0930013F448 /* document.icns */,
+				DB0122BE11FE2D90007EC3CC /* typeis_icon_doc.icns */,
+				DB0122BF11FE2D90007EC3CC /* typeis_icon_app.icns */,
 				DBE5E0A811FA296A0081373C /* MainMenu.xib */,
-				DBE5DE9511FA26A70081373C /* typeis_icon.icns */,
 				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
 				8D15AC360486D014006FF6A4 /* TypeIs0_5-Info.plist */,
 				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
@@ -276,10 +276,10 @@
 			files = (
 				8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */,
 				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
-				DBE5DE9611FA26A70081373C /* typeis_icon.icns in Resources */,
 				DBE5E05811FA28A30081373C /* TIDocument.xib in Resources */,
 				DBE5E0AA11FA296A0081373C /* MainMenu.xib in Resources */,
-				ED1093CD11FAB0930013F448 /* document.icns in Resources */,
+				DB0122C011FE2D90007EC3CC /* typeis_icon_doc.icns in Resources */,
+				DB0122C111FE2D90007EC3CC /* typeis_icon_app.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

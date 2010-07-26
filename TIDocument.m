@@ -828,6 +828,10 @@
 	NSString *extension = [[imageURL pathExtension] lowercaseString];
 	[fw addRegularFileWithContents:[self imageData:[_backgroundView image] usingImageType:extension] preferredFilename:[[@"backgroundImage" stringByAppendingString:@"."] stringByAppendingString:extension]];
 	[fw addRegularFileWithContents:[self imageData:[_foregroundView image] usingImageType:@"tiff"] preferredFilename:[@"foregroundImage" stringByAppendingString:@".tiff"]];
+
+	NSData *lineMangerArchive = [[NSKeyedArchiver archivedDataWithRootObject:_lineManager] autorelease];
+	[fw addRegularFileWithContents:lineMangerArchive preferredFilename:@"lineManager.archive"];
+	
 	return fw;
 }
 

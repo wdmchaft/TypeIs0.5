@@ -24,7 +24,7 @@
 		It will pass glyph data back to a renderer
  */
 
-@interface TILineManager : NSObject {
+@interface TILineManager : NSObject <NSCopying> {
 	NSFont	*currentFont;
 	NSColor *currentColor;
 	CGFloat zoomFactor;

@@ -35,6 +35,10 @@ GENERATE_SINGLETON(TILineManager, myTILineManager);
 	return self;
 }
 
+-(void)encodeWithCoder:(NSCoder *)coder {
+	[coder encodeObject:completedLines];
+}
+
 #ifdef TUIO
 -(void)processTuioDictionary:(NSMutableDictionary *)tuioCursorDictionary {
 	NSMutableDictionary *tuioDictionary = [[[NSMutableDictionary alloc] initWithDictionary:tuioCursorDictionary] autorelease];

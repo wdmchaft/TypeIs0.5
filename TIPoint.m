@@ -77,4 +77,22 @@
 		return kCFBooleanTrue;
 	return kCFBooleanFalse;
 }
+
+-(void)encodeWithCoder:(NSCoder *)coder {
+	[coder encodePoint:NSPointFromCGPoint(origin) forKey:@"origin"];
+	[coder encodeFloat:(float)angle forKey:@"angle"];
+	[coder encodeFloat:(float)distance forKey:@"distance"];
+	[coder encodeDouble:(double)timeStamp forKey:@"timeStamp"];
+}
+
+-(id)initWithCoder:(NSCoder *)decoder {
+	if(![super init]) return nil;
+	angleIsSet = kCFBooleanFalse;
+	distanceIsSet = kCFBooleanFalse;
+	origin = NSPointToCGPoint([decoder decodePointForKey:@"origin"]);
+	[self setAngle:(CGFloat)[decoder decodeFloatForKey:@"angle"]];
+	[self setDistance:(CGFloat)[decoder decodeFloatForKey:@"distance"]];
+	timeStamp = (CFTimeInterval)[decoder decodeDoubleForKey:@"timeStamp"];
+	return self;
+}
 @end

@@ -40,4 +40,22 @@
 	return self;
 }
 
+-(void)encodeWithCoder:(NSCoder *)coder {
+	[coder encodeObject:angle forKey:@"angle"];
+	[coder encodeObject:character forKey:@"character"];
+	[coder encodeObject:location forKey:@"location"];
+	[coder encodeObject:attributesDictionary forKey:@"attributesDictionary"];
+}
+
+-(id)initWithCoder:(NSCoder *)decoder {
+	if(![super init]){
+		return nil;
+	}
+	[self setAngle:[decoder decodeObjectForKey:@"angle"]];
+	[self setCharacter:[decoder decodeObjectForKey:@"character"]];
+	[self setLocation:[decoder decodeObjectForKey:@"location"]];
+	[self setAttributesDictionary:[decoder decodeObjectForKey:@"attributesDictionary"]];
+	return self;
+}
+	 
 @end
