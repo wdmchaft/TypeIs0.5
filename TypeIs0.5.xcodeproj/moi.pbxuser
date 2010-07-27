@@ -41,8 +41,8 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 301645354;
-			PBXWorkspaceStateSaveDate = 301645354;
+			PBXPerProjectTemplateStateSaveDate = 301699604;
+			PBXWorkspaceStateSaveDate = 301699604;
 		};
 		perUserProjectItems = {
 			ED1093F211FAB34B0013F448 /* PBXTextBookmark */ = ED1093F211FAB34B0013F448 /* PBXTextBookmark */;
@@ -55,8 +55,6 @@
 			ED10949E11FABE620013F448 /* PBXTextBookmark */ = ED10949E11FABE620013F448 /* PBXTextBookmark */;
 			ED10949F11FABE620013F448 /* PBXTextBookmark */ = ED10949F11FABE620013F448 /* PBXTextBookmark */;
 			ED1094A011FABE620013F448 /* PBXTextBookmark */ = ED1094A011FABE620013F448 /* PBXTextBookmark */;
-			ED1094A111FABE620013F448 /* PlistBookmark */ = ED1094A111FABE620013F448 /* PlistBookmark */;
-			ED1094A211FABE620013F448 /* PlistBookmark */ = ED1094A211FABE620013F448 /* PlistBookmark */;
 			EDF9412C11FA97C100D4BD65 /* PBXTextBookmark */ = EDF9412C11FA97C100D4BD65 /* PBXTextBookmark */;
 			EDF9413011FA97C100D4BD65 /* PBXTextBookmark */ = EDF9413011FA97C100D4BD65 /* PBXTextBookmark */;
 			EDF9413111FA97C100D4BD65 /* PBXTextBookmark */ = EDF9413111FA97C100D4BD65 /* PBXTextBookmark */;
@@ -67,6 +65,8 @@
 			EDF941AA11FAA44500D4BD65 /* PBXTextBookmark */ = EDF941AA11FAA44500D4BD65 /* PBXTextBookmark */;
 			EDF941D411FAA63400D4BD65 /* PBXTextBookmark */ = EDF941D411FAA63400D4BD65 /* PBXTextBookmark */;
 			EDF941D511FAA63400D4BD65 /* PBXTextBookmark */ = EDF941D511FAA63400D4BD65 /* PBXTextBookmark */;
+			EDFBA36411FB921B00372311 /* PlistBookmark */ = EDFBA36411FB921B00372311 /* PlistBookmark */;
+			EDFBA37411FB94CB00372311 /* PlistBookmark */ = EDFBA37411FB94CB00372311 /* PlistBookmark */;
 		};
 		sourceControlManager = EDF9410811FA64AD00D4BD65 /* Source Control */;
 		userBuildSettings = {
@@ -292,28 +292,6 @@
 		vrLen = 45;
 		vrLoc = 0;
 	};
-	ED1094A111FABE620013F448 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D15AC360486D014006FF6A4 /* TypeIs0_5-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = "/Users/moi/Programming/TypeIs0.5/TypeIs0_5-Info.plist";
-		rLen = 0;
-		rLoc = 9223372036854775807;
-	};
-	ED1094A211FABE620013F448 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D15AC360486D014006FF6A4 /* TypeIs0_5-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = "/Users/moi/Programming/TypeIs0.5/TypeIs0_5-Info.plist";
-		rLen = 0;
-		rLoc = 9223372036854775807;
-	};
 	EDF940E211FA64A000D4BD65 /* TypeIs0.5 */ = {
 		isa = PBXExecutable;
 		activeArgIndices = (
@@ -457,5 +435,27 @@
 		rType = 0;
 		vrLen = 296;
 		vrLoc = 0;
+	};
+	EDFBA36411FB921B00372311 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D15AC360486D014006FF6A4 /* TypeIs0_5-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/moi/Programming/TypeIs0.5/TypeIs0_5-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	EDFBA37411FB94CB00372311 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D15AC360486D014006FF6A4 /* TypeIs0_5-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/moi/Programming/TypeIs0.5/TypeIs0_5-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
 	};
 }
