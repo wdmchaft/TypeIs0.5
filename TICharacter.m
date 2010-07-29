@@ -19,6 +19,14 @@
 	return [self initWithAngle:[NSNumber numberWithInt:0] attributes:NULL character:@"*" andPositionValue:[NSValue valueWithPoint:NSMakePoint(0, 0)]];
 }
 
+-(void)dealloc {
+	[angle release];
+	[character release];
+	[location release];
+	[attributesDictionary release];
+	[super dealloc];
+}
+
 -(id)initWithCharacter:(TICharacter *)aCharacter {
 	[self initWithAngle:[aCharacter angle] attributes:[aCharacter attributesDictionary] character:[aCharacter character] andPositionValue:[aCharacter location]];	
 	return self;
@@ -43,7 +51,7 @@
 -(void)encodeWithCoder:(NSCoder *)coder {
 	[coder encodeObject:angle forKey:@"angle"];
 	[coder encodeObject:character forKey:@"character"];
-	[coder encodeObject:location forKey:@"location"];
+	[coder encodePoint:[location pointValue]forKey:@"location"];
 	[coder encodeObject:attributesDictionary forKey:@"attributesDictionary"];
 }
 
@@ -53,7 +61,7 @@
 	}
 	[self setAngle:[decoder decodeObjectForKey:@"angle"]];
 	[self setCharacter:[decoder decodeObjectForKey:@"character"]];
-	[self setLocation:[decoder decodeObjectForKey:@"location"]];
+	[self setLocation:[NSValue valueWithPoint:[decoder decodePointForKey:@"location"]]];
 	[self setAttributesDictionary:[decoder decodeObjectForKey:@"attributesDictionary"]];
 	return self;
 }

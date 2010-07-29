@@ -291,6 +291,15 @@
 									<reference key="NSOnImage" ref="788572926"/>
 									<reference key="NSMixedImage" ref="954517155"/>
 								</object>
+								<object class="NSMenuItem" id="972670136">
+									<reference key="NSMenu" ref="387717354"/>
+									<string key="NSTitle">Flush To PDF</string>
+									<string key="NSKeyEquiv">f</string>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="788572926"/>
+									<reference key="NSMixedImage" ref="954517155"/>
+								</object>
 								<object class="NSMenuItem" id="828063320">
 									<reference key="NSMenu" ref="387717354"/>
 									<string key="NSTitle">Save As…</string>
@@ -1967,6 +1976,14 @@
 					</object>
 					<int key="connectionID">591</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">flushToPDF:</string>
+						<reference key="source" ref="807134242"/>
+						<reference key="destination" ref="972670136"/>
+					</object>
+					<int key="connectionID">594</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -2126,6 +2143,7 @@
 							<reference ref="497984083"/>
 							<reference ref="634802217"/>
 							<reference ref="198349845"/>
+							<reference ref="972670136"/>
 						</object>
 						<reference key="parent" ref="954453658"/>
 					</object>
@@ -2988,6 +3006,11 @@
 						<reference key="object" ref="198349845"/>
 						<reference key="parent" ref="387717354"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">592</int>
+						<reference key="object" ref="972670136"/>
+						<reference key="parent" ref="387717354"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -3174,6 +3197,8 @@
 					<string>588.ImportedFromIB2</string>
 					<string>590.IBPluginDependency</string>
 					<string>590.ImportedFromIB2</string>
+					<string>592.IBPluginDependency</string>
+					<string>592.ImportedFromIB2</string>
 					<string>72.IBPluginDependency</string>
 					<string>72.ImportedFromIB2</string>
 					<string>73.IBPluginDependency</string>
@@ -3396,7 +3421,9 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{440, 233}, {196, 243}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<integer value="1"/>
+					<string>{{440, 213}, {196, 263}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3421,7 +3448,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">591</int>
+			<int key="maxID">594</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3486,6 +3513,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>doZoom:</string>
+							<string>flushToPDF:</string>
 							<string>savePDF:</string>
 							<string>saveTextImage:</string>
 							<string>setWindowOrder:</string>
@@ -3493,6 +3521,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>

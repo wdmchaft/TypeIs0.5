@@ -26,8 +26,8 @@
 	string = CFStringCreateCopy(kCFAllocatorDefault, stringRef);
 	totalCharacters = CFStringGetLength(string);
 	caretPosition = -1;
-	beingUsed = NO;
-	complete = NO;
+	beingUsed = kCFBooleanFalse;
+	complete = kCFBooleanFalse;
 
 	CFRetain(string);
 	return self;

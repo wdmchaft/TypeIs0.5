@@ -26,7 +26,7 @@
 @end
 
 @implementation TIDocument
-@synthesize foregroundColor, backgroundColor, currentFont, imageURL, textURL;
+@synthesize foregroundColor, backgroundColor, currentFont, imageURL, textURL, currentPDFURL;
 
 - (id)init
 {
@@ -39,6 +39,45 @@
 		_storedCharacters = [[[NSMutableArray alloc] initWithCapacity:0] retain];
 	}
     return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)coder {
+	[coder encodeObject:foregroundColor forKey:@"foregroundColor"];
+	[coder encodeObject:backgroundColor forKey:@"backgroundColor"];
+	[coder encodeObject:currentFont forKey:@"currentFont"];
+	[coder encodeObject:imageURL forKey:@"imageURL"];
+	[coder encodeObject:textURL forKey:@"textURL"];
+	[coder encodeInt:(int)_currentMode forKey:@"_currentMode"];
+	[coder encodeFloat:(float)_currentWeight forKey:@"_currentWeight"];
+	[coder encodeSize:NSSizeFromCGSize(_originalSize) forKey:@"_originalSize"];
+	[coder encodePoint:NSPointFromCGPoint(_adjustedOrigin) forKey:@"_adjustedOrigin"];
+	[coder encodeRect:NSRectFromCGRect(_viewRect) forKey:@"_viewRect"];
+	[coder encodeObject:_lineManager forKey:@"_lineManager"];
+	[coder encodeObject:_textStorage forKey:@"_textStorage"];
+	int _storedCharactersCount = [_storedCharacters count];
+	[coder encodeInt:_storedCharactersCount forKey:@"_storedCharactersCount"];
+	for(int i = 0; i < _storedCharactersCount; i++) [coder encodeObject:[_storedCharacters objectAtIndex:i]];
+}
+
+-(id)initWithCoder:(NSCoder *)decoder {
+	if(![super init]) return nil;
+	[self setForegroundColor:[decoder decodeObjectForKey:@"foregroundColor"]];
+	[self setBackgroundColor:[decoder decodeObjectForKey:@"backgroundColor"]];
+	[self setCurrentFont:[decoder decodeObjectForKey:@"currentFont"]];
+	[self setImageURL:(NSURL *)[decoder decodeObjectForKey:@"imageURL"]];
+	[self setTextURL:(NSURL *)[decoder decodeObjectForKey:@"textURL"]];
+	_currentMode = [decoder decodeIntForKey:@"_currentMode"];
+	_currentWeight = [decoder decodeIntForKey:@"_currentWeight"];
+	_adjustedOrigin = NSPointToCGPoint([decoder decodePointForKey:@"_adjustedOrigin"]);
+	_viewRect = NSRectToCGRect([decoder decodeRectForKey:@"_viewRect"]);
+	[_lineManager initWithLineManager:[decoder decodeObjectForKey:@"_lineManager"]];
+	[_textStorage initWithTextStorage:[decoder decodeObjectForKey:@"_textStorage"]];
+	int _storedCharactersCount = [decoder decodeIntForKey:@"_storedCharactersCount"];
+	_storedCharacters = [[[NSMutableArray alloc] initWithCapacity:0] retain];
+	for(int i = 0; i < _storedCharactersCount; i++) [_storedCharacters addObject:(TICharacter*)[decoder decodeObject]];
+	
+	[self setupEventNotificationObservers];
+	return self;
 }
 
 -(NSString *)fileType {
@@ -179,6 +218,7 @@
 	}
 	
 	NSSavePanel * savePanel = [NSSavePanel savePanel];
+	[savePanel setAllowedFileTypes:[NSArray arrayWithObject:@"pdf"]];
     NSString * fileName = [[_backgroundWindow representedFilename] lastPathComponent];
     [savePanel beginSheetForDirectory: NULL
                                  file: fileName
@@ -190,9 +230,14 @@
 
 -(void)savePDFPanelDidEnd:(NSSavePanel *)panel returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo{
     // save the image
+    NSString * fileName = [panel filename];
+	if (![[fileName substringFromIndex:[fileName length]-4] isEqualToString:@".pdf"]) {
+		fileName = [fileName stringByAppendingString:@".pdf"];
+	}
     if (returnCode == NSOKButton)
     {
-        CFURLRef url = (CFURLRef)[NSURL fileURLWithPath:[panel filename]];
+		[self setCurrentPDFURL:[NSURL fileURLWithPath:[panel filename]]];
+		CFURLRef url = (CFURLRef)[NSURL fileURLWithPath:[panel filename]];
 		
 		NSMutableData *data = [[[NSMutableData alloc] init] autorelease];
 		CGDataConsumerRef consumer = CGDataConsumerCreateWithCFData((CFMutableDataRef)data);
@@ -228,7 +273,6 @@
 			//draw the line
 			CTLineDraw(line,context);
 			CGContextRestoreGState(context);
-			
 		}
 		
 		[pool release];
@@ -236,15 +280,10 @@
 		CGContextEndPage(context);
 		CGContextRelease(context);
 		CGDataConsumerRelease(consumer);
-		
-        if (true)
-        {
-        } else
-        {
-            NSLog(@"*** savePDF - no image");
-        }
     }
 }
+
+-(void)flushToPDF:(id)sender{}
 
 #pragma mark actions
 -(IBAction)setWindowOrder:(id)sender {
@@ -457,6 +496,8 @@
     _backgroundView.hasHorizontalScroller = YES;
     _backgroundView.hasVerticalScroller = YES;
 	
+	CFRelease(imageRef);
+	
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"ControllerDidOpenImage" object:nil]];
 }
 
@@ -505,6 +546,8 @@
     _foregroundView.autohidesScrollers = NO;
     _foregroundView.hasHorizontalScroller = YES;
     _foregroundView.hasVerticalScroller = YES;
+	CFRelease(backgroundViewRef);
+	CFRelease(foregroundViewRef);
 }
 
 #pragma mark typeis initialization
@@ -661,6 +704,7 @@
 		
 		CGDataProviderRef	imageDataProviderRef = CGImageGetDataProvider(foregroundViewRef);
 		CFDataRef			dataProviderCopiedData = CGDataProviderCopyData(imageDataProviderRef);
+		CFRelease(imageDataProviderRef);
 		bitmapData = CFDataGetBytePtr(dataProviderCopiedData);
 		
 		if(bitmapData == NULL){
@@ -689,7 +733,7 @@
 				NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithDictionary:[aChar attributesDictionary]];
 				[attribs setValue:[NSFont fontWithName:fontName size:newFontSize] forKey:NSFontAttributeName];
 				[aChar setAttributesDictionary:attribs];
-				NSAttributedString *attributedChar = [[NSAttributedString alloc] initWithString:[aChar character] attributes:[aChar attributesDictionary]];
+				NSAttributedString *attributedChar = [[[NSAttributedString alloc] initWithString:[aChar character] attributes:[aChar attributesDictionary]] autorelease];
 				CTLineRef line = CTLineCreateWithAttributedString((CFAttributedStringRef)attributedChar);
 				CGRect  imageBounds = CTLineGetImageBounds(line, bitmapContext);
 				float angle = [[aChar angle] floatValue];
@@ -720,6 +764,7 @@
 				//draw the line
 				CTLineDraw(line,bitmapContext);
 				CGContextRestoreGState(bitmapContext);
+				CFRelease(line);
 			}
 		}
 		
@@ -727,6 +772,7 @@
 		/* end drawing code */
 		
 		foregroundViewRef = CGBitmapContextCreateImage(bitmapContext);
+		//WHATTHEFUCK???
 		[_foregroundView setImage:foregroundViewRef imageProperties:NULL];
 		[_foregroundView setZoomFactor:[_backgroundView zoomFactor]];
 		[_foregroundView adjustFrame];
@@ -829,8 +875,8 @@
 	[fw addRegularFileWithContents:[self imageData:[_backgroundView image] usingImageType:extension] preferredFilename:[[@"backgroundImage" stringByAppendingString:@"."] stringByAppendingString:extension]];
 	[fw addRegularFileWithContents:[self imageData:[_foregroundView image] usingImageType:@"tiff"] preferredFilename:[@"foregroundImage" stringByAppendingString:@".tiff"]];
 
-	NSData *lineMangerArchive = [[NSKeyedArchiver archivedDataWithRootObject:_lineManager] autorelease];
-	[fw addRegularFileWithContents:lineMangerArchive preferredFilename:@"lineManager.archive"];
+	NSData *documentArchive = [NSKeyedArchiver archivedDataWithRootObject:self];
+	[fw addRegularFileWithContents:documentArchive preferredFilename:@"document.archive"];
 	
 	return fw;
 }

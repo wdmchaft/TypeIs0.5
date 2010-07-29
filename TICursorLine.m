@@ -18,6 +18,7 @@
 @synthesize currentOrigin;
 @synthesize currentColor;
 @synthesize currentFont;
+@synthesize finished;
 
 /* note: rethink the way i cascade these init calls */
 
@@ -84,13 +85,45 @@
 											 selector:@selector(postAvailableCharacters)
 												 name:@"TICursorLineDidAddPoint"
 											   object:self];
+	[self setFinished:NO];
 	return self;
 }
 
 -(void)dealloc {
+	[currentPoint release];
+	[currentOrigin release];
+	[currentColor release];
+	[currentFont release];
 	[pointArray removeAllObjects];
 	[pointArray release];
+	[string release];
+	[currentCharacter release];
+	[availableCharacters removeAllObjects];
+	[availableCharacters release];
 	[super dealloc];
+}
+
+-(void)encodeWithCoder:(NSCoder *)coder {
+	[coder encodeInt:(int)uniqueID forKey:@"uniqueID"];
+	[coder encodeDouble:(double)startTime forKey:@"startTime"];
+	[coder encodeInt:[pointArray count] forKey:@"pointArrayCount"];
+	for(int i = 0; i < [pointArray count]; i++){
+		[coder encodeObject:[pointArray objectAtIndex:i]];
+	}
+	[coder encodeObject:string forKey:@"string"];
+}
+
+-(id)initWithCoder:(NSCoder *)decoder {
+	if(![super init]) return nil;
+	uniqueID = [decoder decodeIntForKey:@"uniqueID"];
+	startTime = (CFTimeInterval)[decoder decodeDoubleForKey:@"startTime"];
+	int pointArrayCount = [decoder decodeIntForKey:@"pointArrayCount"];
+	pointArray = [[[NSMutableArray alloc] init] retain];
+	for(int i = 0; i < pointArrayCount; i++) (TIPoint *)[decoder decodeObject];
+	string = [[TIString alloc] init];
+	string = [decoder decodeObjectForKey:@"string"];
+	[self setFinished:YES];
+	return self;
 }
 
 -(void)resetWithNewString:(TIString *)tiString {
@@ -98,7 +131,7 @@
 }
 
 -(void)addPoint:(CGPoint)point withTimeStamp:(CFTimeInterval)timeStamp {
-	if([[pointArray lastObject] distanceToPoint:point] >= ktiMinDistanceForNewPoint){
+	if([[pointArray lastObject] distanceToPoint:point] >= ktiMinDistanceForNewPoint && [self finished] == NO){
 		//printf("addPoint\n");
 		TIPoint *p = [[[TIPoint alloc] initWithOrigin:point andTimeStamp:timeStamp] autorelease];
 		if (p != nil) {
@@ -136,6 +169,7 @@
 
 -(void)finishedBeingUsed {
 	[string setBeingUsed:kCFBooleanFalse];
+	[self setFinished:YES];
 }
 
 -(CFIndex)length {
@@ -342,5 +376,4 @@
 -(void)printNextCharacter {
 	[string printNextCharacter];
 }
-
 @end

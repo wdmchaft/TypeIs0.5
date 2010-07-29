@@ -37,6 +37,8 @@
 	CGFloat			totalDistance;
 	CGFloat			distanceToEndOfLastChar;
 	CGFloat			distanceToEndOfPrevChar;
+	
+	BOOL			finished;
 }
 
 -(id)initWithPoint:(CGPoint)point uniqueID:(CFIndex)idAsIndex andTimeStamp:(CFTimeInterval)timeStamp andTIString:(TIString *)tiString andFont:(NSFont *)font andColor:(NSColor *)color;
@@ -74,5 +76,5 @@
 @property(readwrite,retain) TIPoint *currentOrigin;
 @property(readwrite,retain) NSColor *currentColor;
 @property(readwrite,retain) NSFont	*currentFont;
-
+@property(readwrite) BOOL			finished;
 @end

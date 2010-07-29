@@ -16,7 +16,7 @@
 @interface TIDocument : NSDocument {
 	NSColor *foregroundColor, *backgroundColor;
 	NSFont	*currentFont;
-	NSURL	*imageURL, *textURL;
+	NSURL	*imageURL, *textURL, *currentPDFURL;
 	
 	NSUInteger	_currentMode;
 	CGFloat		_currentWeight;
@@ -46,6 +46,7 @@
 -(IBAction)savePDF:(id)sender;
 -(void)saveTextImagePanelDidEnd:(NSSavePanel *)panel returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 -(void)savePDFPanelDidEnd:(NSSavePanel *)panel returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+-(IBAction)flushToPDF:(id)sender;
 -(void)setImage:(NSURL *)image andText:(NSURL *)text;
 -(void)setWindowSize;
 
@@ -58,4 +59,5 @@
 @property(readwrite,retain) NSFont	* currentFont;
 @property(readwrite,retain) NSURL	* imageURL;
 @property(readwrite,retain) NSURL	* textURL;
+@property(readwrite,retain) NSURL	* currentPDFURL;
 @end

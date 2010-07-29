@@ -38,6 +38,7 @@
 -(void)initWithSTRING:(NSString *)string;
 -(void)initWithURL:(NSURL *)URL;
 -(void)initWithUTF8STRING:(const char *)bytes;
+-(void)initWithTextStorage:(TITextStorage *)textStorage;
 
 #pragma mark data manipulation
 -(void)initializeDataContainers;
@@ -54,5 +55,6 @@
 -(void)printLayoutManagers;
 #pragma mark accessor methods
 -(CFBooleanRef)hasContent;
-
+-(CFIndex)currentParagraphIndex;
+-(CFIndex)nextAvailableParagraphIndex;
 @end

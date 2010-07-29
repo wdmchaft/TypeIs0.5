@@ -49,6 +49,7 @@
 
 -(id)_init;
 +(TILineManager *)sharedManager;
+-(void)initWithLineManager:(TILineManager *)lineManager;
 
 -(void)addPoint:(CGPoint)point toLineForID:(NSUInteger)uniqueID andTimeStamp:(CFTimeInterval)timeStamp;
 -(void)addLineWithPoint:(CGPoint)point withID:(NSUInteger)uniqueID andTimeStamp:(CFTimeInterval)timeStamp;
@@ -70,4 +71,5 @@
 -(NSArray *)getCompletedLines;
 -(NSArray *)getAllCharacters;
 -(TICursorLine *)getLastLine;
+-(int)lineCountForMouseInteraction;
 @end

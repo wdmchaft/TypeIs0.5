@@ -19,6 +19,49 @@ GENERATE_SINGLETON(TITextStorage, myTITextStorage);
 	return self;
 }
 
+-(void)initWithTextStorage:(TITextStorage *)textStorage {
+	mTextStorage = [[[NSTextStorage alloc] init] retain];
+	mTextStorage = [textStorage->mTextStorage copy];
+	mParagraphs = [[[NSMutableArray alloc] initWithArray:[textStorage->mParagraphs copy]] retain];
+	currentParagraph = [textStorage currentParagraphIndex];
+	nextAvailableParagraph = [textStorage nextAvailableParagraphIndex];
+	hasContent = [textStorage hasContent];
+}
+
+-(void)encodeWithCoder:(NSCoder *)coder {
+	[coder encodeObject:mTextStorage forKey:@"textStorage"];
+	[coder encodeInt:[mParagraphs count] forKey:@"mParagraphsCount"];
+	for(int i = 0; i < [mParagraphs count]; i++){
+		[coder encodeObject:[mParagraphs objectAtIndex:i]];
+	}
+	[coder encodeInt:(int)currentParagraph forKey:@"currentParagraph"];
+	[coder encodeInt:(int)nextAvailableParagraph forKey:@"nextAvailableParagraph"];
+	if(hasContent == kCFBooleanTrue) [coder encodeBool:YES forKey:@"hasContent"];
+	else [coder encodeBool:NO forKey:@"hasContent"];
+}
+
+-(id)initWithCoder:(NSCoder *)decoder {
+	if(![super init]) return nil;
+	mTextStorage = [[[NSTextStorage alloc] init] retain];
+	mTextStorage = [decoder decodeObjectForKey:@"textStorage"];
+	int mParagraphsCount = [decoder decodeIntForKey:@"mParagraphsCount"];
+	mParagraphs = [[[NSMutableArray alloc] initWithCapacity:0] retain];
+	for(int i = 0; i < mParagraphsCount; i++) [mParagraphs addObject:(TIString*)[decoder decodeObject]];
+	currentParagraph = (CFIndex)[decoder decodeIntForKey:@"currentParagraph"];
+	nextAvailableParagraph = (CFIndex)[decoder decodeIntForKey:@"nextAvailableParagraph"];
+	if([decoder decodeBoolForKey:@"hasContent"] == YES) hasContent = kCFBooleanTrue;
+	else hasContent = kCFBooleanFalse;
+	return self;
+}
+
+-(CFIndex)currentParagraphIndex {
+	return currentParagraph;
+}
+
+-(CFIndex)nextAvailableParagraphIndex {
+	return nextAvailableParagraph;
+}
+
 #pragma mark initialization methods
 -(void)initWithBYTES:(const void *)bytes length:(NSUInteger)length encoding:(NSStringEncoding)encoding {
 	NSString *aString = [[[NSString alloc] initWithBytes:bytes length:length encoding:encoding] autorelease];
@@ -114,6 +157,7 @@ GENERATE_SINGLETON(TITextStorage, myTITextStorage);
 
 -(CFBooleanRef)isTextComplete {
 	if (currentParagraph == [mParagraphs count]) {
+		printf("COMPLETE\n");
 		return kCFBooleanTrue;
 	}
 	return kCFBooleanFalse;

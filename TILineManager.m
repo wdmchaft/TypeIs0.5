@@ -35,8 +35,58 @@ GENERATE_SINGLETON(TILineManager, myTILineManager);
 	return self;
 }
 
+-(void)initWithLineManager:(TILineManager *)lineManager {
+	[self setCurrentFont:[lineManager currentFont]];
+	[self setCurrentColor:[lineManager currentColor]];
+	[self setZoomFactor:[lineManager zoomFactor]];
+	if (completedLines != nil) {
+		[completedLines release];
+		completedLines = nil;
+	}
+	completedLines = [lineManager->completedLines copy];
+	lineCountForMouseInteraction = [lineManager lineCountForMouseInteraction];
+	[myTextStorage initWithTextStorage:lineManager->myTextStorage];
+	linesBeingDrawn = [lineManager->linesBeingDrawn copy];
+	bufferedCharacters = [lineManager->bufferedCharacters copy];
+	if([completedLines count] > 0) firstPointRecorded = kCFBooleanTrue;
+	else firstPointRecorded = kCFBooleanFalse;
+}
+
 -(void)encodeWithCoder:(NSCoder *)coder {
-	[coder encodeObject:completedLines];
+	[coder encodeObject:currentFont forKey:@"currentFont"];
+	[coder encodeObject:currentColor forKey:@"currentColor"];
+	[coder encodeFloat:(float)zoomFactor forKey:@"zoomFactor"];
+	[coder encodeInt:[completedLines count] forKey:@"completedLinesCount"];
+	for(int i = 0; i < [completedLines count]; i++){
+		[coder encodeObject:[completedLines objectAtIndex:i]];
+	} 
+	[coder encodeInt:(int)lineCountForMouseInteraction forKey:@"lineCountForMouseInteraction"];
+	[coder encodeObject:myTextStorage forKey:@"myTextStorage"];
+}
+
+-(id)initWithCoder:(NSCoder *)decoder {
+	if(![super init]) return nil;
+	[self setCurrentFont:[decoder decodeObjectForKey:@"currentFont"]];
+	[self setCurrentColor:[decoder decodeObjectForKey:@"currentColor"]];
+	[self setZoomFactor:(CGFloat)[decoder decodeFloatForKey:@"zoomFactor"]];
+	int completedLinesCount = [decoder decodeIntForKey:@"completedLinesCount"];
+	completedLines = [[[NSMutableArray alloc] init] retain];
+	for(int i = 0; i < completedLinesCount; i++) [completedLines addObject:(TICursorLine*)[decoder decodeObject]];
+	lineCountForMouseInteraction = [decoder decodeIntForKey:@"lineCountForMouseInteraction"];
+	[myTextStorage initWithTextStorage:[decoder decodeObjectForKey:@"myTextStorage"]];
+	
+	linesBeingDrawn = [[[NSMutableArray alloc] init] retain];
+	bufferedCharacters = [[[NSMutableArray alloc] init] retain];
+	firstPointRecorded = kCFBooleanFalse;
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(changeFont:)
+												 name:@"ControllerDidChangeFont"
+											   object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(changeColor:)
+												 name:@"ControllerDidChangeColor"
+											   object:nil];
+	return self;
 }
 
 #ifdef TUIO
@@ -199,35 +249,6 @@ GENERATE_SINGLETON(TILineManager, myTILineManager);
 }
 
 -(TICharacter *)getNextCharacter {
-	/*
-	if(mouseCursorLine != nil){
-		NSString *singleCharacter = (NSString *)[mouseCursorLine getNextCharacter];
-		if(singleCharacter != nil){
-			//Create a temporary font for this instance, specifying the weight at the current distance
-			NSFont		*tempFont = currentFont ;
-			//PROBLEM with inverted colors
-			NSColor		*tempColor = [NSColor colorWithCalibratedRed:[currentColor redComponent] 
-															green:[currentColor greenComponent] 
-															 blue:[currentColor blueComponent] 
-															alpha:1.0f];
-
-			//printf("rgba(%4.2f,%4.2f,%4.2f,%4.2f)\n",[currentColor redComponent],[currentColor greenComponent],[currentColor blueComponent],[currentColor alphaComponent]);
-			
-			NSArray *keys = [NSArray arrayWithObjects:NSFontAttributeName,NSForegroundColorAttributeName,nil];
-			NSArray *objects = [NSArray arrayWithObjects:tempFont,tempColor,nil];
-
-			NSDictionary *attributes = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
-			//NSPoint p = [ pointValue];
-			TICharacter *aTIChar = [[TICharacter alloc] initWithAngle:[NSNumber numberWithFloat:[mouseCursorLine angleForCurrentCharacter]]
-														   attributes:attributes
-															character:singleCharacter
-														  andPositionValue:[mouseCursorLine positionForCurrentCharacter]];
-			
-			
-			return aTIChar;
-		}
-	}
-	 */
 	return nil;
 }
 
@@ -246,5 +267,9 @@ GENERATE_SINGLETON(TILineManager, myTILineManager);
 
 -(TICursorLine *)getLastLine {
 	return [completedLines lastObject];
+}
+
+-(int)lineCountForMouseInteraction {
+	return lineCountForMouseInteraction;
 }
 @end
