@@ -103,9 +103,7 @@
 		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 		for(int i = 0; i < [tempCharacters count]; i++){
 			if ([tempCharacters objectAtIndex:i] != nil) {
-				//2.3MB
 				TICharacter *aChar = [[[TICharacter alloc] initWithCharacter: [tempCharacters objectAtIndex:i]] autorelease];
-				//1.67MB
 				NSAttributedString *attributedChar = [[[NSAttributedString alloc] initWithString:[aChar character] attributes:[aChar attributesDictionary]] autorelease];
 				[[NSGraphicsContext currentContext] saveGraphicsState];
 				NSPoint p = [[aChar location] pointValue];

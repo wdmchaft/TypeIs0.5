@@ -469,14 +469,17 @@
 	if ([extension isEqualToString:@"tiff"]) {
 		CGImageSourceRef imageSourceRef = CGImageSourceCreateWithData((CFDataRef)[image TIFFRepresentation], NULL);
 		imageRef = CGImageSourceCreateImageAtIndex(imageSourceRef, 0, NULL);
+		CFRelease(imageSourceRef);
 	}
 	if ([extension isEqualToString:@"jpg"] || [[url pathExtension] isEqualToString:@"jpeg"]) {
 		CGDataProviderRef dataProviderRef = CGDataProviderCreateWithURL((CFURLRef)url);
 		imageRef = CGImageCreateWithJPEGDataProvider(dataProviderRef, NULL, YES, kCGRenderingIntentDefault);
+		CFRelease(dataProviderRef);
 	}
 	if ([extension isEqualToString:@"png"]) {
 		CGDataProviderRef dataProviderRef = CGDataProviderCreateWithURL((CFURLRef)url);
 		imageRef = CGImageCreateWithPNGDataProvider(dataProviderRef, NULL, YES, kCGRenderingIntentDefault);
+		CFRelease(dataProviderRef);
 	}
 	
 	_originalSize = CGSizeMake(CGImageGetWidth(imageRef), CGImageGetHeight(imageRef));
@@ -778,6 +781,7 @@
 		[_foregroundView adjustFrame];
 		CGContextRelease(bitmapContext);	
 	}
+	printf("_storedCharacters:%d\n",(int)[_storedCharacters count]);
 }	
 
 -(void)drawPathToIKImageView:(CGMutablePathRef)aPath {

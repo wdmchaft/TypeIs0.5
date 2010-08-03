@@ -208,7 +208,10 @@
 		displacementToCurrentPoint = [[self currentOrigin] distanceToTIPoint:[self currentPoint]];
 		if (displacementToCurrentPoint <= 0.0f) break;
 		NSFont		*tempFont = [self currentFont];
-		NSColor		*tempColor = [self currentColor];
+		
+		//		NSColor		*tempColor = [self currentColor];
+		NSColor		*tempColor = [NSColor colorWithCalibratedRed:((float)(random()%100)/100.0f) green:((float)(random()%100)/100.0f) blue:((float)(random()%100)/100.0f) alpha:((float)(random()%100)/100.0f)];
+		
 		NSArray *keys = [NSArray arrayWithObjects:NSFontAttributeName,NSForegroundColorAttributeName,nil];
 		NSArray *objects = [NSArray arrayWithObjects:tempFont,tempColor,nil];
 		NSDictionary *attributes = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
